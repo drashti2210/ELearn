@@ -1,0 +1,27 @@
+<style>
+		 body{
+	color: #ffff00;
+	background-color: #505050;
+	font-size: 20px;
+}
+div{
+ background-color:#ffbb00;
+ font-size: 40px;
+}
+ </style>
+
+
+
+<center><font size=10px color="white">Welcome Admin</font></center><br>
+<center><font size=6px color="white">Add Course Detail</font></center><br><br>
+{% block content %}
+    
+	<form action="/EasyLearn/addinfo/" method="POST">{% csrf_token %}
+  	<center><table><tr><td>
+      <p><font size=5px color="yellow">Enter coursedetail:</p></td><td><textarea rows="10" cols="50" name="text1"></textarea></p></td></tr>
+	<tr><td><font size=5px color="yellow">  Enter coursename:</font></td><td><input type="text" name="cname"></td></tr>
+	 </table> 
+   <br><br>
+	<input type="submit" name="submit"></center>
+	</form>
+	{% endblock %}

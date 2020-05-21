@@ -1,0 +1,79 @@
+<html>
+	<head>
+<style>
+hed
+{
+  text-shadow: 5px 5px Orange;
+  color: Tomato;
+  text-align: center;
+  font-size: 100px;
+}
+
+a:link, a:visited {
+  background-color: DodgerBlue;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  width: 200px;
+}
+
+a:hover, a:active {
+  background-color:Blue;
+  }
+   body {
+ background-image: url("/static/img1.jpeg");
+ background-color: #cccccc;
+ background-repeat: no-repeat;
+  background-size: cover;
+}
+
+  </style>
+  <title>
+		Courses
+		</title>
+	</head>
+	<body>
+<center><hed>Courses</hed></center>
+		<br><br><br>
+<div class="btn-group">
+   {%if request.user.is_superuser %}
+  
+
+  <a href="/EasyLearn/addcourse">AddCourses</a>
+  <a href="/EasyLearn/deletecourse">DeleteCourse</a>
+  <a href="/EasyLearn/editcourse">AddCourseDetails</a>
+  <a href="/EasyLearn/addsubject">AddSubject</a>
+  
+  
+  <a href="/EasyLearn/editsubject">AddSubjectDetails</a>
+
+  </div>
+  {%endif%}<br><br><br>
+	<center><div class="btn-group">
+	{% block content %}
+    
+	<form action="/EasyLearn/detailcourse" method="POST">{% csrf_token %}
+    {% if courseinfo %}
+   
+      {% for course in courseinfo %}
+     
+
+<a href="/EasyLearn/detailcourse/?cname={{course.CourseName}}&cid={{course.CourseId}}"> <font color="black">{{course.CourseName }}</font><br></a><br>	<br>
+	  {% endfor %}
+    
+    {% else %}
+      <p>Coursess not found!</p>
+    {% endif %}    
+
+ <!--   <p> <a href="/logintestapp/login/">Click here </a> to login </p> -->
+    
+     
+{% endblock %}
+	<br>
+	</div><center>
+	</form>
+		</body>
+		
+</html>

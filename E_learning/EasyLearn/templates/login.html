@@ -1,0 +1,50 @@
+
+     
+
+
+     
+
+	  <html>
+	<head>
+<style>
+div {
+  width: 320px;
+  padding: 0px;
+  border: 5px solid gray;
+  margin: 0;
+}
+  body {
+ background-image: url("img2.jpeg");
+ background-color: #cccccc;
+ background-repeat: no-repeat;
+  background-size: cover;
+}
+hed
+{
+  text-shadow: 4px 4px orange;
+  color: white;
+  text-align: center;
+  font-size: 70px;
+  font-family: "Times New Roman", Times, serif;
+}
+</style>
+		<title>
+			Learn_Easy
+		</title>
+	</head>
+	  {% block content %}
+	<body>
+	<hed>Enter your userId and password to login....</hed><br><br><br><br><br><br><br><br>
+		<center><div style="background-color:rgb(255,255,255);"><form action="/EasyLearn/auth_view/" method="POST">{% csrf_token %}
+			<h3><br><br>
+				userId:<input type="text" name="username"><br><br>
+				password:<input type="password" name="password"><br><br>
+				<input type="submit" value="login">
+				<input type="reset" value="reset"><br><br>
+				Click<a href="/EasyLearn/enter/"> here </a> to register.<br><br>
+							
+			</h3>
+		</form></div></center>
+		 {% endblock %}
+	</body>
+</html>

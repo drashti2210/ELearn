@@ -1,0 +1,43 @@
+<html>
+<head>
+	<style>
+		 body{
+	color: #ffff00;
+	background-color: #505050;
+	font-size: 20px;
+}
+div{
+ background-color:#ffbb00;
+ font-size: 40px;
+}
+ </style>
+
+</head>
+<center><font size=10px color="white">Welcome Admin</font></center><br>
+<center><font size=6px color="white">Add Subject Detail</font></center><br><br>
+<br><br>
+{% block content %}
+	<form action="/EasyLearn/entersubdetail/" method = "POST">{% csrf_token %}
+	<center>	<table><tr><td>
+		<label for="subjectid">SubjectName</label></td>
+		<td>
+		<input type="text" name = "sname" id="SubjectID"><br></td></tr>
+		<tr><td>
+		<label for="courseid"> Subjectinfo</label></td>
+		<td>
+		<input type="text" name="sinfo" id="CourseId"></td></tr>
+		<tr><td>
+		<label for="subjectname">Docurl</label></td>
+		<td>
+		<input type="text" name="durl" value="" id="subjectName"></td></tr>
+		<tr><td>
+				<label for="videourl">VideoURL</label></td><td><input type="text" name="vurl" id="url"></td>
+		</tr><tr><td>
+		
+				<label for="iamgeourl">ImageURL</label></td>
+				<td><input type="text" name="imgurl" id="url"></td></tr>
+		</table><br><br>
+		<input type="submit" value="Enter"/></center>
+	</form>
+	
+{% endblock %}

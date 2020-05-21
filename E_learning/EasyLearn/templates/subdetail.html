@@ -1,0 +1,137 @@
+{% block content %}
+
+ 
+<html>
+<head>
+<style>
+  .sometxt{
+    background-position: center;
+    font-family: Times;
+    width: 90%;
+    max-height: 180px;
+    border-radius: 10px;
+    background-color: lightpink;
+    background-size: cover;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    }
+    .sometxt h3{
+        background-color: dodgerblue;
+        font-weight: bold;
+        font-size: 20px;
+    }
+   
+#heading{
+background-image: url("");
+background-color: DodgerBlue;
+ background-size: cover;
+background-repeat: no-repeat;
+color: white;
+font-size: 55px;
+}
+#type1{
+color: Blue;
+font-size: 30px;
+
+}
+body{
+font-size: 15px;
+background-color:lightgray;
+background-image:"img1.jpeg";
+}
+.button {
+  position: absolute;
+  right: 0px;
+  }
+</style>
+<title>put subject name here</title>
+</head>
+<body>
+{% if subname %}
+ {% for list1 in subname %}
+<div id="heading"><center>{{list1.Subjectname}}</center></div>
+{% endfor %}
+{% endif %}
+<br><br>
+
+
+<a href="/EasyLearn/welcome">
+<button class="button">home</button>
+</a>
+{% if subname %}
+ {% for list1 in subname %}
+<div id="type1"> Introduction to {{list1.Subjectname}} </div>
+<br><br><font size="5px">{{list1.Subjectinfo}}</font>
+
+
+<br><br>
+<div style="text-align:center"> 
+  <button onclick="playPause()">Play/Pause</button> 
+  <button onclick="makeBig()">Big</button>
+  <button onclick="makeSmall()">Small</button>
+  <button onclick="makeNormal()">Normal</button>
+  <br><br>
+  <video id="video1" width="420">
+    <source src="{{list1.Videourl}}" type="video/mp4">
+    <source src="mov_bbb.ogg" type="video/ogg">
+   
+  </video>
+</div> 
+<script> 
+var myVideo = document.getElementById("video1"); 
+
+function playPause() { 
+  if (myVideo.paused) 
+    myVideo.play(); 
+  else 
+    myVideo.pause(); 
+} 
+
+function makeBig() { 
+    myVideo.width = 560; 
+} 
+
+function makeSmall() { 
+    myVideo.width = 320; 
+} 
+
+function makeNormal() { 
+    myVideo.width = 420; 
+} 
+</script> 
+
+
+
+<br><br>
+<font size="5px"><strong>document download</strong></font>
+
+<p><u><strong>Click on the image to download the file:</strong></u><p>
+
+<a href="{{list1.Docurl}}"> 
+  <img src="{{list1.ImageUrl}}" alt="some text" width="150" height="200">
+</a>
+{% endfor %}
+{% endif %}
+
+<form action="/EasyLearn/addreview/" method="POST">{% csrf_token %}
+<h3>Add a comment</h3><input type="text" name="cmt">
+
+<input type="submit" name="submit"/>
+</form>
+<font size="5px"><strong>Review</strong></font><br>
+{% if review %}
+			{% for re in review %}<br>
+       <div class="sometxt">
+				<font size=5px>{{re.Comment}}</font><br>
+				&nbsp;&nbsp;&nbsp;&nbsp;--{{re.Sname}}</font>
+        <br>
+        <br>
+</div>
+			{% endfor %}
+{% endif %}
+</body>
+</html>
+
+
+{% endblock %}

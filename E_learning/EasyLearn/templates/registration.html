@@ -1,0 +1,56 @@
+<html>
+<head>
+<style>
+y
+{
+  font-size: 35px;
+  font-family: "Times New Roman", Times, serif;
+}
+x
+{
+  text-shadow: 3px 3px DodgerBlue;
+  color: blue;
+  text-align: center;
+  font-size: 65px;
+  font-family: "Times New Roman", Times, serif;
+}
+   body {
+ background-image: url("img1.jpeg");
+ background-color: #cccccc;
+ background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+</head>
+<body>
+{% block content%}
+<script type="text/javascript">
+    function Validate() {
+        var password = document.getElementById("txtPassword").value;
+        var confirmPassword = document.getElementById("txtConfirmPassword").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
+ 
+<center><x>Registration Form</x></center><br><br><br><br>
+<form action="/EasyLearn/registration/" method="POST">{% csrf_token %}
+<center>
+<table>
+<tr><td><y>StudentId</y></td><td><input type="text" name="sid" required></td></tr>
+<tr><td><y>Password</y></td><td><input type="password" name="password" id="txtPassword" required></td></tr>
+<tr><td><y>Confirm Password</y></td><td><input type="password" name="password1" id="txtConfirmPassword" required></td></tr>
+
+<tr><td><y>Name:</y></td><td><input type="text" name="name"></td></tr>
+<tr><td><y>EmailId</y></td><td><input type="text" name="email" pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$" required/>></td></tr>
+<tr><td><y>Submit</y></td><td><input type="submit" name="submit" onclick="return Validate()"></td></tr>
+{% endblock %}
+
+</table>
+</center>
+</form>
+</body>
+</html>

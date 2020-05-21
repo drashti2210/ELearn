@@ -1,0 +1,94 @@
+<html>
+	<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<style>
+	 body {
+ background-image: url("/static/img1.jpeg");
+ background-color: #cccccc;
+ background-repeat: no-repeat;
+  background-size: cover;
+}
+	d{
+		background-color: orange;
+		color: White;
+		font-size: 60px;
+		text-align: center;
+		background:url(/static/img4.jpeg);
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	p{
+		font-size: 20px;
+	}
+	container {
+  position: relative;
+  width: 20%;
+  max-width: 400px;
+}
+
+.container img {
+  width: 50%;
+  height: 200px;
+  left:5%;
+}
+
+.container .btn {
+  position: absolute;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  width: 50%;
+  background-color: #d3d3d3;
+  color: black;
+  font-size: 16px;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 9000px;
+  text-align: center;
+}
+
+.container .btn:hover {
+  background-color: black;
+  color: white;
+}
+</style>
+		<title></title>
+		</head><body>
+		
+	
+{% block content %}
+
+ 
+   
+
+      {% if info %}
+	<br><br>
+	<center> {% for list1 in info %}
+	<d>
+		{{list1.CourseName}}
+	</d></center><br><br>
+	
+		<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{list1.Introduction }}
+		{% endfor %}
+	 {% else %}
+		
+		  {% endif %}
+		 <center> <h3>Select the subject<h3></center><br>
+		{% if list %}
+		{% for list2 in list  %}
+		<div class="container">
+<div class="row"><div class="col-sm-4">
+    <img src="{{list2.Url}}" alt="pythonlogo" ><br><br><br>
+<a href="/EasyLearn/subdetail/?name={{list2.SubjectName}}&id={{list2.SubjectID}}"><button class="btn"> {{list2.SubjectName}}</button></a></div>
+			
+		{% endfor %}</div></div></center>
+		{%  endif %}
+	
+	</form>
+	</div>
+	{% endblock %}
+     

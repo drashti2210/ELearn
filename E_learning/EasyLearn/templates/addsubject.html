@@ -1,0 +1,39 @@
+<style>
+		 body{
+	color: #ffff00;
+	background-color: #505050;
+	font-size: 20px;
+}
+div{
+ background-color:#ffbb00;
+ font-size: 40px;
+}
+ </style>
+<center><font size=10px color="white">Welcome Admin</font></center><br>
+<center><font size=6px color="white">Add Subject</font></center><br><br>
+{% block content %}
+<center>
+	<form action="/EasyLearn/enterdetail/" method = "POST">{% csrf_token %}
+		<table>
+			<tr><td>
+		<label for="subjectid">SubjectID</label></td>
+		<td>
+		<input type="text" name = "sid" value = "" id="SubjectID"></td></tr>
+		<tr><td>
+		<label for="courseid"> CourseId</label></td>
+		<td>
+		<input type="text" name="cid" value="" id="CourseId"></td></tr>
+		<tr><td>
+		<label for="subjectname">SubjectName</label></td>
+		<td>
+		<input type="text" name="sname" value="" id="subjectName"></td></tr>
+		<tr>
+			<td>
+		Enter image url</td><td><input type="text" name="url" id="url"></td>
+		</tr></table>
+		<br>
+		<br>
+		<input type="submit" value="Enter"/>
+	</form></center>
+	
+{% endblock %}

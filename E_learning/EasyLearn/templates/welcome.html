@@ -1,0 +1,91 @@
+ {% block content %}
+
+
+<html>
+	<head>
+	
+{% load staticfiles %}
+<style>
+.sometxt{
+      background-position: bottom;
+     
+      padding: 8px;
+      font-family: Times;
+    width: 50%;
+    max-height: 180px;
+    border-radius: 25px;
+    background-image: url(/static/gradient.jpg);
+    background-size: cover;
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    }
+  a:link, a:visited {
+  background-color:#191919;
+  font-size:15px;
+  color: gold;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+a:hover, a:active {
+  background-color: #353535;
+  color: white;
+  font-size:22px;
+  }
+
+            .up{
+                background-image: url(/static/image.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                color: black;
+                font-size: 30px;
+                font-weight: bold;
+            }
+            top{
+                color: white;
+                font-family: Times;
+                font-size: 60px;
+                
+            }
+  </style>
+		<title>
+			Learn_Easy
+		</title>
+	</head>
+	<body>
+	<table>
+	<tr><td>
+	</td>
+  <td>
+	{% if user1 %}
+		{% for list in user1 %}
+			<font color="white">{{list.Name}}</font>
+		{% endfor %}
+	{% endif %}
+	<body style="background-color: black">
+        <top><table><tr><td><image src="/static/logo.jpg" width="70px" height="80px"></td><td><font size="35px" color="white">Learn-Easy</font><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font size="23px" color="white">The Learning Tool</font></td>
+                    <td><div class="btn-group">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<a href="/EasyLearn/courses">Courses</a>
+	<a href="/EasyLearn/aboutUs">About us</a>
+	<a href="/EasyLearn/logout">Logout</a>
+		<a href="/EasyLearn/contectus">ContactUs</a>
+    {%if request.user.is_superuser %}
+  <a href="/EasyLearn/admin">Admin</a>
+{%endif%}
+	
+                        </div></td></tr></table></top>
+}
+        <div class="up"><br><br><br><br><br><br></div>
+        <br><div class="sometxt">
+            &nbsp;This is an education tool which helps you to explore various subjects of some very interesting courses.
+		It's purpose is not only to give the information about subjects but you can also learn thorugh videos and download related material.
+		it makes learning process very much easy and interesting for you.So, what are you waiting for? Start exploring things and enjoy learning!!
+                </div>
+    </body>	</body>
+		
+</html>
+  {% endblock %} 

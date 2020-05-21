@@ -1,0 +1,88 @@
+<html>
+<head>
+<style>
+#heading{
+background-image: url("");
+background-color: DodgerBlue;
+ background-size: cover;
+background-repeat: no-repeat;
+color: white;
+font-size: 55px;
+}
+#type1{
+color: Blue;
+font-size: 30px;
+
+}
+body{
+font-size: 15px;
+background-image:"img1.jpeg";
+}
+.button {
+  position: absolute;
+  right: 0px;
+  }
+</style>
+<title>put subject name here</title>
+</head>
+<body>
+
+<div id="heading">put heading here</div>
+<br><br>
+<a href="home.html">
+<button class="button">home</button>
+</a>
+
+<div id="type1"> Introduction to {subname}</div>
+<br><br>intro. text
+
+<br><br>
+<div style="text-align:center"> 
+  <button onclick="playPause()">Play/Pause</button> 
+  <button onclick="makeBig()">Big</button>
+  <button onclick="makeSmall()">Small</button>
+  <button onclick="makeNormal()">Normal</button>
+  <br><br>
+  <video id="video1" width="420">
+    <source src="mov_bbb.mp4" type="video/mp4">
+    <source src="mov_bbb.ogg" type="video/ogg">
+    Your browser does not support HTML5 video.
+  </video>
+</div> 
+
+<script> 
+var myVideo = document.getElementById("video1"); 
+
+function playPause() { 
+  if (myVideo.paused) 
+    myVideo.play(); 
+  else 
+    myVideo.pause(); 
+} 
+
+function makeBig() { 
+    myVideo.width = 560; 
+} 
+
+function makeSmall() { 
+    myVideo.width = 320; 
+} 
+
+function makeNormal() { 
+    myVideo.width = 420; 
+} 
+</script> 
+
+
+
+<br><br>
+<font size="5">document download</font>
+
+<p>Click on the image to download the file:<p>
+
+<a href="document url" download>
+  <img src="logo or cover page of document" alt="some text" width="150" height="200">
+</a>
+
+</body>
+</html>
